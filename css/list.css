@@ -237,6 +237,9 @@ body {
   height: 50px;
   float: left;
 }
+.header .header_nav .header_nav_inner .nav_all:hover .nav_all_slide {
+  display: block;
+}
 .header .header_nav .header_nav_inner .nav_all .nav_all_a {
   display: block;
   height: 50px;
@@ -247,6 +250,7 @@ body {
   line-height: 50px;
 }
 .header .header_nav .header_nav_inner .nav_all .nav_all_slide {
+  display: none;
   width: 170px;
   height: 450px;
   position: absolute;
@@ -384,387 +388,150 @@ body {
   line-height: 50px;
 }
 
-.banner {
-  margin-bottom: 40px;
-  height: 450px;
-  position: relative;
-  min-width: 1080px;
+.section .search_class {
+  width: 1076px;
+  height: 44px;
+  border: 2px solid #ededed;
   margin: 0 auto;
+  margin-top: 20px;
+  background: #f2f2f2;
+  font-size: 14px;
+  line-height: 44px;
 }
-.banner .pic_box {
-  width: 100%;
-  height: 450px;
+.section .search_class .allClass {
+  margin-left: 29px;
+  color: #2bbc69;
 }
-.banner .pic_box a {
-  display: block;
-  width: 100%;
-  height: 450px;
-  display: none;
-}
-.banner .pic_box a:nth-child(1) {
-  background: url(../images/carousel1.jpg) no-repeat top center;
-}
-.banner .pic_box a:nth-child(2) {
-  background: url(../images/carousel2.jpg) no-repeat top center;
-}
-.banner .pic_box a:nth-child(3) {
-  background: url(../images/carousel3.jpg) no-repeat top center;
-}
-.banner .pic_box a:nth-child(4) {
-  background: url(../images/carousel4.jpg) no-repeat top center;
-}
-.banner .pic_box a:nth-child(5) {
-  background: url(../images/carousel5.jpg) no-repeat top center;
-}
-.banner .pic_box a:nth-child(6) {
-  background: url(../images/carousel6.jpg) no-repeat top center;
-}
-.banner .pic_box .active {
-  display: block;
-}
-.banner .switchBtn {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  height: 46px;
-  width: 926px;
-  text-align: center;
-  margin-left: -384px;
-}
-.banner .switchBtn a {
-  display: block;
-  float: left;
-  width: 148px;
-  height: 46px;
-  text-align: center;
-  line-height: 46px;
-  color: #fff;
-  margin: 0 1px;
-  background-color: rgba(153, 153, 153, 0.6);
-}
-
-.section .section_common .main_food .right .samll_pic .i, .section .section_common .food_list ul li a .i {
-  position: absolute;
-  width: 90px;
-  height: 22px;
-  line-height: 22px;
-  color: #fff;
-  background: #2bbc69 url(../images/i-add-cart.gif) 5px center no-repeat;
-  font-style: normal;
-  font-size: 12px;
-  border-radius: 3px;
-  left: 50%;
-  margin: 0 0 0 -45px;
-  bottom: -30px;
-  text-indent: 24px;
-  text-align: left;
-  opacity: 0;
-  cursor: pointer;
-  font-family: arial,sans-serif;
-  transition: all 0.5s;
-}
-
-.section {
-  position: relative;
-  overflow: hidden;
-}
-.section .section_common {
-  margin-bottom: 35px;
-}
-.section .section_common .title {
-  height: 60px;
-  border-top: 1px solid #2bbc69;
-  position: relative;
-  line-height: 60px;
-}
-.section .section_common .title .title_a {
-  display: inline-block;
-}
-.section .section_common .title .title_a img {
-  width: 28px;
-  height: 28px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-.section .section_common .title .title_a strong {
-  font-size: 20px;
-  color: #4a4a4a;
-  font-weight: normal;
-}
-.section .section_common .title .title_a strong span {
-  font-weight: bold;
-  margin-right: 10px;
-}
-.section .section_common .title .title_a .eng_span {
-  font-size: 12px;
-  font-family: Helvetica;
-  margin: 0 10px;
-  color: #4a4a4a;
-}
-.section .section_common .title .title_a .msg {
-  font-size: 13px;
-  color: #908d8d;
-}
-.section .section_common .title .more {
-  position: absolute;
-  right: 0;
-  top: 18px;
-  color: #fff;
-  background-color: #22bc69;
-  width: 70px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-}
-.section .section_common .main_food {
-  overflow: hidden;
-}
-.section .section_common .main_food .left {
-  height: 300px;
-  overflow: hidden;
-  width: 649px;
-  float: left;
-}
-.section .section_common .main_food .left a {
-  display: block;
-  width: 100%;
-  height: 300px;
-  transition: all .5s;
-}
-.section .section_common .main_food .left a:hover {
-  opacity: 0.6;
-}
-.section .section_common .main_food .left a img {
-  width: 650px;
-  height: 300px;
-}
-.section .section_common .main_food .right {
-  height: 299px;
-  overflow: hidden;
-  border: 1px solid #ededed;
-  border-width: 1px 1px 0 0;
-  float: left;
-  width: 430px;
-  position: relative;
-  box-shadow: inset 0 0 0px 9px #f0f1f3;
-}
-.section .section_common .main_food .right:hover .samll_pic .i {
-  opacity: 0.9;
-  bottom: 0;
-}
-.section .section_common .main_food .right .samll_pic {
-  width: 160px;
-  height: 160px;
-  top: 66px;
-  left: 20px;
-  display: block;
-  position: absolute;
-  overflow: hidden;
-}
-.section .section_common .main_food .right .samll_pic img {
-  width: 160px;
-  height: 160px;
-}
-.section .section_common .main_food .right .message_box {
-  float: right;
-  padding: 45px 30px 20px 0;
-  width: 216px;
-}
-.section .section_common .main_food .right .message_box .name {
-  color: #808c9a;
-  font-size: 13px;
-  height: 23px;
-  margin: 5px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  line-height: 23px;
-}
-.section .section_common .main_food .right .message_box h4 {
-  height: 27px;
-  overflow: hidden;
-  line-height: 27px;
-  font-size: 16px;
-  font-weight: normal;
-}
-.section .section_common .main_food .right .message_box h4 a {
-  font-size: 18px;
+.section .search_class .curClass {
+  margin-left: 18px;
   color: #33495f;
 }
-.section .section_common .main_food .right .message_box .price {
-  color: #808c9a;
-  font-size: 13px;
-  height: 23px;
-  margin: 5px 0;
-  line-height: 23px;
-}
-.section .section_common .main_food .right .message_box .price strong {
-  color: #f66;
-  font-size: 18px;
-  font-weight: bold;
-}
-.section .section_common .main_food .right .message_box .message {
-  color: #808c9a;
-  max-height: 115px;
-  line-height: 23px;
-  overflow: hidden;
-  margin-top: 15px;
-}
-.section .section_common .main_food .right .message_box .message span {
-  color: #33495f;
-}
-.section .section_common .main_food .right .message_box .flashSale {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-.section .section_common .food_list {
-  border: 1px solid #ededed;
-  border-width: 0 1px 1px 0;
-}
-.section .section_common .food_list ul {
-  overflow: hidden;
+.section .filter {
   width: 1080px;
-}
-.section .section_common .food_list ul li {
-  border-top: 1px solid #ededed;
-  border-left: 1px solid #ededed;
-  padding: 15px;
-  width: 185px;
-  height: 241px;
-  text-align: center;
-  float: left;
-  position: relative;
-}
-.section .section_common .food_list ul li:hover a .i {
-  opacity: 0.9;
-  bottom: 0;
-}
-.section .section_common .food_list ul li a {
   margin: 0 auto;
-  display: block;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 10px;
-  position: relative;
-  overflow: hidden;
-}
-.section .section_common .food_list ul li a img {
-  width: 120px;
-  height: 120px;
-}
-.section .section_common .food_list ul li span {
-  display: block;
-  color: #808c9a;
-  font-size: 12px;
-  line-height: 23px;
-}
-.section .section_common .food_list ul li p {
-  overflow: hidden;
   height: 27px;
+  padding: 10px 0;
+  background: #f2f2f2;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.section .filter .left {
+  float: left;
+}
+.section .filter .left .sort {
+  line-height: 27px;
+  color: #33495f;
+  margin-left: 10px;
+}
+.section .filter .left a {
+  padding: 0 10px;
+  color: #2bbc69;
+  border: 1px solid #2bbc69;
+  display: inline-block;
+  background-color: #fff;
+  height: 25px;
+  line-height: 25px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+.section .filter .left a:hover {
+  opacity: .8;
+}
+.section .filter .left .active {
+  background: #dbf5e6;
+}
+.section .filter .right {
+  float: right;
+  margin: 0 10px;
+}
+.section .filter .right span {
+  display: inline-block;
+  line-height: 27px;
+  color: #33495f;
+}
+.section .filter .right input {
+  vertical-align: middle;
+}
+.section .filter .right label {
+  display: inline-block;
+  line-height: 27px;
+  color: #33495f;
+}
+.section .search_shop {
+  width: 1080px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.section .search_shop:after {
+  clear: both;
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+.section .search_shop .menu {
+  float: left;
+  width: 185px;
+  height: 340px;
+  padding: 15px;
+  border: 1px solid #ededed;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  text-align: center;
+}
+.section .search_shop .menu .food_pic {
+  display: block;
+  padding-bottom: 10px;
+}
+.section .search_shop .menu .food_pic img {
+  width: 120px;
+  height: 120px;
+}
+.section .search_shop .menu .food_msg {
+  line-height: 23px;
+  font-size: 13px;
+  color: #808c9a;
+}
+.section .search_shop .menu .food_name {
   line-height: 27px;
   font-size: 15px;
+  color: #33495f;
 }
-.section .section_common .food_list ul li strong {
+.section .search_shop .menu .food_price {
   color: #2bbc69;
   font-size: 18px;
   display: block;
   margin: 5px 0;
   line-height: 23px;
 }
-.section .section_common .food_list ul li b {
-  color: #808c9a;
-  font-size: 12px;
-  height: 23px;
+.section .search_shop .menu .food_num {
+  line-height: 23px;
+  font-size: 13px;
+  margin: 5px 0;
   display: block;
-}
-
-.careChoen, .ongoing {
-  margin-bottom: 35px;
-}
-.careChoen .top, .ongoing .top {
-  height: 72px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.careChoen .top h2, .ongoing .top h2 {
-  font-size: 34px;
-  color: #33495f;
   font-weight: normal;
 }
-.careChoen .top p, .ongoing .top p {
+.section .search_shop .menu .fav {
+  line-height: 23px;
+  margin-top: 17px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  cursor: pointer;
   color: #808c9a;
 }
-.careChoen .mid, .ongoing .mid {
-  overflow: hidden;
-  border: 1px solid #ededed;
-  border-width: 0 1px 1px 0;
-  width: 1079px;
-}
-.careChoen .mid ul, .ongoing .mid ul {
-  width: 1080px;
-}
-.careChoen .mid ul li, .ongoing .mid ul li {
-  width: 341px;
-  float: left;
-  padding: 9px;
-  border: 1px solid #ededed;
-  border-width: 1px 0 0 1px;
-}
-.careChoen .mid ul li .big_pic, .ongoing .mid ul li .big_pic {
-  display: block;
-  margin-bottom: 14px;
-  background: #ededed url(../images/loading.gif) no-repeat center;
-  background-size: 40px;
-}
-.careChoen .mid ul li .big_pic img, .ongoing .mid ul li .big_pic img {
-  width: 342px;
-  height: 228px;
-}
-.careChoen .mid ul li .name, .ongoing .mid ul li .name {
-  color: #808c9a;
-  height: 23px;
-  overflow: hidden;
+.section .search_shop .menu .add_shop {
+  display: inline-block;
+  width: 120px;
+  height: 28px;
+  background-color: #fff;
+  color: #2bbc69;
+  border: 1px solid #2bbc69;
   text-align: center;
-  margin: 4px 9px;
-  line-height: 23px;
-}
-.careChoen .mid ul li h3, .ongoing .mid ul li h3 {
-  overflow: hidden;
-  text-align: center;
-  height: 30px;
-  font-weight: normal;
-}
-.careChoen .mid ul li .desc, .ongoing .mid ul li .desc {
-  text-align: left;
-  color: #666;
-  margin: 16px 24px;
-  line-height: 23px;
-  height: 69px;
-  overflow: hidden;
-}
-.careChoen .mid ul li .img_list, .ongoing .mid ul li .img_list {
-  text-align: center;
-}
-.careChoen .mid ul li .img_list a img, .ongoing .mid ul li .img_list a img {
-  width: 150px;
-  margin: 4px;
-}
-.careChoen .bot, .ongoing .bot {
-  margin-top: 30px;
-}
-.careChoen .bot a, .ongoing .bot a {
-  display: block;
-  width: 178px;
-  height: 43px;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  text-align: center;
-  font-size: 16px;
-  margin: 0 auto;
-  color: #fff;
-  line-height: 45px;
-  background-color: #22bc69;
+  line-height: 28px;
+  font-size: 13px;
+  margin-top: 17px;
 }
 
 .footer {
