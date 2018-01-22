@@ -3,6 +3,12 @@
 
 $green:#22bc69;
 $black:#354b60;
+
+%color{
+    &:hover{
+        color:$green;
+    }
+}
 html{
     color: #33495f;
     font: 14px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica,"Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑","STHeiti";
@@ -376,12 +382,12 @@ body{
                     line-height: 50px;
                     a{
                         display:inline-block;
-                        // float: left;
                         height: 50px;
                         font-size: 16px;
                         color: #33495f;
                         line-height: 50px;
                         padding: 0 30px;
+                        @extend %color;
                     }
                     span{
                         line-height: 50px;

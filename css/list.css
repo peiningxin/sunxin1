@@ -25,6 +25,10 @@ input {
   border: none;
 }
 
+.header .header_nav .header_nav_inner .nav_all_list li a:hover {
+  color: #22bc69;
+}
+
 html {
   color: #33495f;
   font: 14px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica,"Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑","STHeiti";
