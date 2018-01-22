@@ -872,6 +872,9 @@ body{
             span{
                 display: block;
             }
+            a{
+                color: #91afc6;  
+            }
         }
     }
 }
@@ -900,5 +903,182 @@ body{
         right: 0;
         background: url(https://sstatic.chunboimg.com/images/tips.gif) no-repeat;
         display: none;
+    }
+}
+
+.max_shadow{
+    background-color: rgba(0,0,0,0.7);
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 9999;
+    display: none;
+    .login_box{
+        width:580px;
+        background-color: #fff;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        .title{
+            margin-top:30px;
+            line-height: 84px;
+            text-align: center;
+            line-height: 84px;
+            color: #33495F!important;
+            font-size: 32px;
+        }
+        .content{
+            overflow: hidden;
+            padding: 0 127px 12px 123px;
+            .msg{
+                width: 330px;
+                height:30px;
+                line-height: 30px;
+                text-align: center;
+                background-color:#fcf2f1; 
+                margin-top:10px;
+                display: none;
+                color:#e94d3c;
+            }
+            input{
+                height:22px;
+                border: 1px solid #c3c8cc;
+                vertical-align:top;
+                padding:0;
+                font-size: 14px;
+                color:#e94d3c;
+                padding: 14px 18px;
+            }
+            .phone_box{
+                margin-top:10px;
+                height:52px;
+                .phone{
+                    width:292px;
+                }
+            }
+            .random_box{
+                margin-top:10px;
+                height:53px;
+                .left{
+                    float:left;
+                    width:122px;
+                    margin:0;
+                }
+                .right{
+                    float:right;
+                    width:158px;
+                    height: 50px;
+                    display: inline-block;
+                    border: 1px solid #2bbc69;
+                    border-radius: 2px;
+                    background: url(../images/randomCode.jpg) no-repeat center;
+                }
+            }
+            .identifying_box{
+                @extend .random_box;
+                .identifyingCode{
+                    border: 1px solid #d1d5d8;
+                    color: #fff;
+                    background-color: #d1d5d8;
+                    text-align: center;
+                    line-height: 50px;
+                    background-image:none;
+                    cursor: pointer;
+                }
+            }
+            .voiceCode{
+                width:294px;
+                height:26px;
+                padding-left: 34px;
+                border:1px solid #fce7ab;
+                line-height: 26px;
+                background: #fff9ea;
+                margin-top:10px;
+                display: none;
+            }
+            .sub{
+                width:330px;
+                height:50px;
+                border:0;
+                margin-top:13px;
+                color: #fff;
+                padding:0;
+                background-color: $green;
+                line-height:50px;
+                text-align: center;
+                font-size: 16px;
+            }
+            .text{
+                margin-top: 13px;
+                font-size: 13px;
+                text-align: center;
+                line-height: 40px;
+                a{
+                    text-decoration: underline;
+                }
+            }
+        }
+        .content1{
+            display: none;
+        }
+        .content2{
+            @extend .content;
+            .password_box{
+                @extend .phone_box;
+            }
+            .text{
+                position: relative;
+                text-align: left;
+                .check_box{
+                    display: inline-block;
+                    width:20px;
+                    height:20px;
+                    background-image: -webkit-image-set(url(..//images/login_icon_1x.png) 1x,url(../images/login_icon_2x.png) 2x);
+                    background-repeat: no-repeat;
+                    background-position: -276px -31px;
+                    vertical-align: middle;
+                    margin-right:7px;
+                }
+                .active{
+                    background-position:-326px -31px;
+                }
+                .forget{
+                    position: absolute;
+                    right:0;
+                    top:0;
+                    color:$green;
+                }
+            }
+        }
+        .bot{
+            height:86px;
+            border-top: 2px solid #f6f6f6;
+            text-align: center;
+            a{
+                display: inline-block;
+                font-size:16px;
+                line-height: 26px;
+                color: #33495f;
+                margin-top:30px;
+            }
+        }
+        .bot1{
+            display: none;
+        }
+        .bot2{
+            @extend .bot;
+            // display: none;
+        }
+        .close{
+            width: 27px;
+            height:25px;
+            background: url(../images/close.png) no-repeat center;
+            position: absolute;
+            right:10px;
+            top:10px;
+        }
     }
 }

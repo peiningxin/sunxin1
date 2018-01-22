@@ -754,10 +754,10 @@ body {
   width: 150px;
   margin: 4px;
 }
-.careChoen .bot, .ongoing .bot {
+.careChoen .bot, .ongoing .bot, .careChoen .max_shadow .login_box .bot2, .max_shadow .login_box .careChoen .bot2, .ongoing .max_shadow .login_box .bot2, .max_shadow .login_box .ongoing .bot2 {
   margin-top: 30px;
 }
-.careChoen .bot a, .ongoing .bot a {
+.careChoen .bot a, .ongoing .bot a, .careChoen .max_shadow .login_box .bot2 a, .max_shadow .login_box .careChoen .bot2 a, .ongoing .max_shadow .login_box .bot2 a, .max_shadow .login_box .ongoing .bot2 a {
   display: block;
   width: 178px;
   height: 43px;
@@ -834,14 +834,17 @@ body {
 .footer .footer_inner .top .sweep {
   width: 141px;
 }
-.footer .footer_inner .bot {
+.footer .footer_inner .bot, .footer .footer_inner .max_shadow .login_box .bot2, .max_shadow .login_box .footer .footer_inner .bot2 {
   padding-top: 10px;
   text-align: center;
   line-height: 26px;
   color: #91afc6;
 }
-.footer .footer_inner .bot span {
+.footer .footer_inner .bot span, .footer .footer_inner .max_shadow .login_box .bot2 span, .max_shadow .login_box .footer .footer_inner .bot2 span {
   display: block;
+}
+.footer .footer_inner .bot a, .footer .footer_inner .max_shadow .login_box .bot2 a, .max_shadow .login_box .footer .footer_inner .bot2 a {
+  color: #91afc6;
 }
 
 .toTop {
@@ -867,4 +870,168 @@ body {
   right: 0;
   background: url(https://sstatic.chunboimg.com/images/tips.gif) no-repeat;
   display: none;
+}
+
+.max_shadow {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  display: none;
+}
+.max_shadow .login_box {
+  width: 580px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.max_shadow .login_box .title {
+  margin-top: 30px;
+  line-height: 84px;
+  text-align: center;
+  line-height: 84px;
+  color: #33495F !important;
+  font-size: 32px;
+}
+.max_shadow .login_box .content, .max_shadow .login_box .content2 {
+  overflow: hidden;
+  padding: 0 127px 12px 123px;
+}
+.max_shadow .login_box .content .msg, .max_shadow .login_box .content2 .msg {
+  width: 330px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #fcf2f1;
+  margin-top: 10px;
+  display: none;
+  color: #e94d3c;
+}
+.max_shadow .login_box .content input, .max_shadow .login_box .content2 input {
+  height: 22px;
+  border: 1px solid #c3c8cc;
+  vertical-align: top;
+  padding: 0;
+  font-size: 14px;
+  color: #e94d3c;
+  padding: 14px 18px;
+}
+.max_shadow .login_box .content .phone_box, .max_shadow .login_box .content2 .phone_box, .max_shadow .login_box .content2 .password_box {
+  margin-top: 10px;
+  height: 52px;
+}
+.max_shadow .login_box .content .phone_box .phone, .max_shadow .login_box .content2 .phone_box .phone, .max_shadow .login_box .content2 .password_box .phone {
+  width: 292px;
+}
+.max_shadow .login_box .content .random_box, .max_shadow .login_box .content2 .random_box, .max_shadow .login_box .content .identifying_box, .max_shadow .login_box .content2 .identifying_box {
+  margin-top: 10px;
+  height: 53px;
+}
+.max_shadow .login_box .content .random_box .left, .max_shadow .login_box .content2 .random_box .left, .max_shadow .login_box .content .identifying_box .left, .max_shadow .login_box .content2 .identifying_box .left {
+  float: left;
+  width: 122px;
+  margin: 0;
+}
+.max_shadow .login_box .content .random_box .right, .max_shadow .login_box .content2 .random_box .right, .max_shadow .login_box .content .identifying_box .right, .max_shadow .login_box .content2 .identifying_box .right {
+  float: right;
+  width: 158px;
+  height: 50px;
+  display: inline-block;
+  border: 1px solid #2bbc69;
+  border-radius: 2px;
+  background: url(../images/randomCode.jpg) no-repeat center;
+}
+.max_shadow .login_box .content .identifying_box .identifyingCode, .max_shadow .login_box .content2 .identifying_box .identifyingCode {
+  border: 1px solid #d1d5d8;
+  color: #fff;
+  background-color: #d1d5d8;
+  text-align: center;
+  line-height: 50px;
+  background-image: none;
+  cursor: pointer;
+}
+.max_shadow .login_box .content .voiceCode, .max_shadow .login_box .content2 .voiceCode {
+  width: 294px;
+  height: 26px;
+  padding-left: 34px;
+  border: 1px solid #fce7ab;
+  line-height: 26px;
+  background: #fff9ea;
+  margin-top: 10px;
+  display: none;
+}
+.max_shadow .login_box .content .sub, .max_shadow .login_box .content2 .sub {
+  width: 330px;
+  height: 50px;
+  border: 0;
+  margin-top: 13px;
+  color: #fff;
+  padding: 0;
+  background-color: #22bc69;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+.max_shadow .login_box .content .text, .max_shadow .login_box .content2 .text {
+  margin-top: 13px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 40px;
+}
+.max_shadow .login_box .content .text a, .max_shadow .login_box .content2 .text a {
+  text-decoration: underline;
+}
+.max_shadow .login_box .content1 {
+  display: none;
+}
+.max_shadow .login_box .content2 .text {
+  position: relative;
+  text-align: left;
+}
+.max_shadow .login_box .content2 .text .check_box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: -webkit-image-set(url(..//images/login_icon_1x.png) 1x, url(../images/login_icon_2x.png) 2x);
+  background-repeat: no-repeat;
+  background-position: -276px -31px;
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.max_shadow .login_box .content2 .text .active {
+  background-position: -326px -31px;
+}
+.max_shadow .login_box .content2 .text .forget {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #22bc69;
+}
+.max_shadow .login_box .bot, .max_shadow .login_box .bot2 {
+  height: 86px;
+  border-top: 2px solid #f6f6f6;
+  text-align: center;
+}
+.max_shadow .login_box .bot a, .max_shadow .login_box .bot2 a {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 26px;
+  color: #33495f;
+  margin-top: 30px;
+}
+.max_shadow .login_box .bot1 {
+  display: none;
+}
+.max_shadow .login_box .close {
+  width: 27px;
+  height: 25px;
+  background: url(../images/close.png) no-repeat center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }

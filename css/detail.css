@@ -1030,6 +1030,9 @@ body {
 .footer .footer_inner .bot span {
   display: block;
 }
+.footer .footer_inner .bot a {
+  color: #91afc6;
+}
 
 .toTop {
   display: block;
