@@ -1262,8 +1262,8 @@
                 <label for="">只显示有货</label>
             </div>
         </div>
-        <div class="search_shop">
-            <div class="menu">
+        <div class="search_shop" id="ulbox">
+            <!-- <div class="menu" >
                 <a href="javascript:;" class="food_pic"><img src="images/mht1.jpg" alt=""></a>
                 <p class="food_msg">阳光般的金黄色果肉</p>
                 <a href="javascript:;" class="food_name">佳沛新西兰巨无霸金奇异果</a>
@@ -1358,7 +1358,7 @@
                     <span>添加到心愿单</span>
                 </div>
                 <a href="javascript:;" class="add_shop">加入购物车</a>
-            </div>
+            </div> -->
         </div>
     </div>
     
@@ -1423,7 +1423,43 @@
 
 
     
-    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>  
-    <script src="js/list.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script> 
+
+<script src="js/list.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type:"get",
+            url:"getGoodsList.php",
+            success:function (data) {
+                showgoodsList(data);
+            },
+            dataType:"json"
+        });
+    });
+
+    function showgoodsList(datas) {
+        let $ulbox = $("#ulbox");
+        for(let i=0;i<datas.length;i++){
+            //1、创建li
+            // let str="<li><p>商品编号："+datas[i].goodsId+"</p>" +
+            //     "<p>商品名称："+datas[i].goodsName+"</p>" +
+            //     "<p>商品价格："+datas[i].goodsPrice+"</p>" +
+            //     "<p>商品图片：<img style='width:100px' src='"+datas[i].goodsImg+"'/></p></li>";
+
+            let str="<div class='menu'>"+
+                        "<a href='javascript:;' class='food_pic'><img src='"+datas[i].goodsImg+"'></a>"+
+                        "<p class='food_msg'>"+datas[i].goodsDesc+"</p>"+
+                        "<a href='javascript:;' class='food_name'>"+datas[i].goodsName+"</a>"+
+                        "<strong class='food_price'>￥"+datas[i].goodsPrice+"</strong>"+
+                        "<b class='food_num'>"+datas[i].goodsCount+"</b>"+
+                        "<div class='fav'><i></i><span>添加到心愿单</span></div>"+
+                        "<a href='javascript:;' class='add_shop'>加入购物车</a>"+
+                    "</div>";
+            $ulbox.append(str);
+        }
+    }
+</script>   
 </body>
 </html>

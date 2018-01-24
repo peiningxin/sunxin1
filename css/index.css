@@ -924,9 +924,19 @@ body {
 .max_shadow .login_box .content .phone_box, .max_shadow .login_box .content2 .phone_box, .max_shadow .login_box .content2 .password_box {
   margin-top: 10px;
   height: 52px;
+  position: relative;
 }
 .max_shadow .login_box .content .phone_box .phone, .max_shadow .login_box .content2 .phone_box .phone, .max_shadow .login_box .content2 .password_box .phone {
   width: 292px;
+}
+.max_shadow .login_box .content .phone_box #usernameMsg, .max_shadow .login_box .content2 .phone_box #usernameMsg, .max_shadow .login_box .content2 .password_box #usernameMsg {
+  position: absolute;
+  min-width: 100px;
+  max-width: 130px;
+  height: 50px;
+  left: 100%;
+  top: 0;
+  line-height: 50px;
 }
 .max_shadow .login_box .content .random_box, .max_shadow .login_box .content2 .random_box, .max_shadow .login_box .content .identifying_box, .max_shadow .login_box .content2 .identifying_box {
   margin-top: 10px;
