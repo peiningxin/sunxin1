@@ -90,6 +90,7 @@ body {
 .section_one table tbody .td1 .check_box, .section_one .cart_box_bottom .left .all_sel span {
   display: inline-block;
   width: 22px;
+  height: 22px;
   background: url(../images/chunbo_icon2x.png) -250px -55px no-repeat;
 }
 

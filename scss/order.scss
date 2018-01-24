@@ -108,6 +108,16 @@ body{
     height:70px;
     font-size: 34px;
 }
+%downArrow{
+    display: block;
+    position: absolute;
+    border-width: 5px;
+    right: 10px;
+    top: 52%;
+    margin-top: -5px;
+    border-style: solid;
+    border-color: #33495f transparent transparent transparent;
+}
 .section2{
     margin-top:10px;
     .title{
@@ -169,12 +179,38 @@ body{
                         border-radius: 2px;
                         padding-right: 30px;
                         padding-left: 10px;
+                        position: relative;
+                        span{
+                            line-height: 40px;
+                        }
+                        b{
+                            @extend %downArrow;
+                        }
                     }
                     .write_adr{
                         width:340px;
                     }
                     .mark{
                         @extend .sel_add;
+                        position: relative;
+                        .adr_list{
+                            border:1px solid #c3c8cc;
+                            width: 100px;
+                            position: absolute;
+                            left: -1px;
+                            top:38px;
+                            background-color: #fff;
+                            display: none;
+                            a{
+                                display: block;
+                                width:90px;
+                                height:39px;
+                                padding-left:10px;
+                                line-height: 38px;
+                                border-top: 1px solid #c3c8cc;;
+                                margin-top:-1px;
+                            }
+                        }
                     }
                     .write_phone{
                         width:150px;
@@ -191,6 +227,7 @@ body{
                         font-size: 16px;
                         width:192px;
                         line-height: 46px;
+                        border-radius: 3px;
                     }
                 }
             }
@@ -249,14 +286,135 @@ body{
         display: block;
         margin: 15px 0;
         padding: 20px;
-        height:144px;
         border: 1px solid #ededed;
-        ul{
-            li{
-                
+        dt{
+            height:21px;
+            margin-bottom: 15px; 
+            line-height: 21px; 
+            padding-left:35px;
+            background: url(../images/step.gif) -725px -40px no-repeat;
+            span{
+                color:$green;
+            }  
+            b{
+                font-weight: normal;
+                color:$green;
+            }
+        }
+        .active{
+            background-position: -725px 0;
+        }
+        dd{
+            height:30px;
+            padding:10px 20px;
+            font-size: 14px;
+            color:#777;
+            background: #f7f7f7;
+            margin-bottom: 20px;
+            display: none;
+            input{
+                width:158px;
+                height:20px;
+                border:1px solid #BBC1C5;
+                border-radius: 2px;
+                padding:4px 10px;
+                margin:0 5px;
+            }
+            .use{
+                width:80px;
+                height:30px;
+                background-color: #d4d4d4;
+                display: inline-block;
+                text-align: center;
+                line-height: 30px;
+                border-radius: 2px;
+            }        
+        }
+    }
+}
+.section5{
+    border-bottom: 1px solid $borderColor;
+    margin-bottom: 15px;
+    overflow: hidden;
+    .left{
+        line-height: 36px;
+        color: $green;
+        height:36px;
+        cursor: pointer;
+        float: left;
+    }
+    .right{
+        width:470px;
+        padding:5px 20px;
+        float:right;
+        p{
+            height:21px;
+            line-height: 20px;
+            margin-bottom: 20px;
+            b{
+                font-style: normal;
+                float: left;
+                font-weight: normal;
+            }
+            span{
+                float:right;
             }
         }
     }
+}
+.section6{
+    padding:20px 0 30px;
+    overflow: hidden;
+    .order_info{
+        width:338px;
+        padding:20px;
+        border: 1px solid #E75F44;
+        float:right;
+        p{
+            line-height: 30px;
+            height: 30px;
+            font-size: 15px;
+            text-align: right;
+            &:first-child{
+                line-height: 38px;
+                height:38px;
+            }
+            span{
+                font-size: 24px;
+                color: #E4543C;
+            }
+            .check_box{
+                display: inline-block;
+                width: 21px;
+                height: 20px;
+                vertical-align: middle;
+                background: #fff url(../images/chunbo_icon2x.png) -220px -56px no-repeat;
+            }
+            .active{
+                background-position: -250px -56px;
+            }
+        }
+        .dash{
+            border-bottom: 1px dashed $borderColor;
+            margin:10px 0;
+            height:0;
+        }
+    }
+    .sub_btn{
+        width:198px;
+        height:46px;
+        background-color: #e75f44;
+        line-height: 46px;
+        color:#fff;
+        font-size: 16px;
+        text-align: center;
+        display: block;
+        margin-top:-1px;
+        float:right;
+        clear: both;
+        @extend %opacity;
+    }
+   
 }
 .footer{
     width: 100%;

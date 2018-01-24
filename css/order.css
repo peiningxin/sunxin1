@@ -25,6 +25,10 @@ input {
   border: none;
 }
 
+.section6 .sub_btn:hover {
+  opacity: 0.8;
+}
+
 html {
   color: #33495f;
   font: 14px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica,"Microsoft YaHei","微软雅黑","MicrosoftJhengHei","华文细黑","STHeiti";
@@ -117,6 +121,17 @@ body {
   font-size: 34px;
 }
 
+.section2 .content ul li .li_right .sel_add b, .section2 .content ul li .li_right .mark b {
+  display: block;
+  position: absolute;
+  border-width: 5px;
+  right: 10px;
+  top: 52%;
+  margin-top: -5px;
+  border-style: solid;
+  border-color: #33495f transparent transparent transparent;
+}
+
 .section2 {
   margin-top: 10px;
 }
@@ -177,9 +192,34 @@ body {
   border-radius: 2px;
   padding-right: 30px;
   padding-left: 10px;
+  position: relative;
+}
+.section2 .content ul li .li_right .sel_add span, .section2 .content ul li .li_right .mark span {
+  line-height: 40px;
 }
 .section2 .content ul li .li_right .write_adr {
   width: 340px;
+}
+.section2 .content ul li .li_right .mark {
+  position: relative;
+}
+.section2 .content ul li .li_right .mark .adr_list {
+  border: 1px solid #c3c8cc;
+  width: 100px;
+  position: absolute;
+  left: -1px;
+  top: 38px;
+  background-color: #fff;
+  display: none;
+}
+.section2 .content ul li .li_right .mark .adr_list a {
+  display: block;
+  width: 90px;
+  height: 39px;
+  padding-left: 10px;
+  line-height: 38px;
+  border-top: 1px solid #c3c8cc;
+  margin-top: -1px;
 }
 .section2 .content ul li .li_right .write_phone {
   width: 150px;
@@ -196,6 +236,7 @@ body {
   font-size: 16px;
   width: 192px;
   line-height: 46px;
+  border-radius: 3px;
 }
 
 .section3 .content .top {
@@ -242,8 +283,134 @@ body {
   display: block;
   margin: 15px 0;
   padding: 20px;
-  height: 144px;
   border: 1px solid #ededed;
+}
+.section4 .content dt {
+  height: 21px;
+  margin-bottom: 15px;
+  line-height: 21px;
+  padding-left: 35px;
+  background: url(../images/step.gif) -725px -40px no-repeat;
+}
+.section4 .content dt span {
+  color: #22bc69;
+}
+.section4 .content dt b {
+  font-weight: normal;
+  color: #22bc69;
+}
+.section4 .content .active {
+  background-position: -725px 0;
+}
+.section4 .content dd {
+  height: 30px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #777;
+  background: #f7f7f7;
+  margin-bottom: 20px;
+  display: none;
+}
+.section4 .content dd input {
+  width: 158px;
+  height: 20px;
+  border: 1px solid #BBC1C5;
+  border-radius: 2px;
+  padding: 4px 10px;
+  margin: 0 5px;
+}
+.section4 .content dd .use {
+  width: 80px;
+  height: 30px;
+  background-color: #d4d4d4;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 2px;
+}
+
+.section5 {
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.section5 .left {
+  line-height: 36px;
+  color: #22bc69;
+  height: 36px;
+  cursor: pointer;
+  float: left;
+}
+.section5 .right {
+  width: 470px;
+  padding: 5px 20px;
+  float: right;
+}
+.section5 .right p {
+  height: 21px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.section5 .right p b {
+  font-style: normal;
+  float: left;
+  font-weight: normal;
+}
+.section5 .right p span {
+  float: right;
+}
+
+.section6 {
+  padding: 20px 0 30px;
+  overflow: hidden;
+}
+.section6 .order_info {
+  width: 338px;
+  padding: 20px;
+  border: 1px solid #E75F44;
+  float: right;
+}
+.section6 .order_info p {
+  line-height: 30px;
+  height: 30px;
+  font-size: 15px;
+  text-align: right;
+}
+.section6 .order_info p:first-child {
+  line-height: 38px;
+  height: 38px;
+}
+.section6 .order_info p span {
+  font-size: 24px;
+  color: #E4543C;
+}
+.section6 .order_info p .check_box {
+  display: inline-block;
+  width: 21px;
+  height: 20px;
+  vertical-align: middle;
+  background: #fff url(../images/chunbo_icon2x.png) -220px -56px no-repeat;
+}
+.section6 .order_info p .active {
+  background-position: -250px -56px;
+}
+.section6 .order_info .dash {
+  border-bottom: 1px dashed #ededed;
+  margin: 10px 0;
+  height: 0;
+}
+.section6 .sub_btn {
+  width: 198px;
+  height: 46px;
+  background-color: #e75f44;
+  line-height: 46px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  margin-top: -1px;
+  float: right;
+  clear: both;
 }
 
 .footer {
