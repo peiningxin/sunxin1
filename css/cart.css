@@ -80,11 +80,15 @@ body {
   line-height: 45px;
   color: #999;
 }
-.header .header_top .header_inner .header_login .header_login {
+.header .header_top .header_inner .header_login .login {
+  color: #333;
+}
+.header .header_top .header_inner .header_login .username_show {
   color: #999;
 }
 .header .header_top .header_inner .header_login .signOut {
   color: #999;
+  display: none;
 }
 
 .section_one table tbody .td1 .check_box, .section_one .cart_box_bottom .left .all_sel span {

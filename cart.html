@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>春播-详情页</title>
+    <title>春播-购物车页</title>
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
@@ -12,9 +12,12 @@
     <div class="header">
         <div class="header_top">
             <div class="header_inner">
-                <a href="javascript:;" class="logo"></a>
+                <a href="index.html" class="logo"></a>
                 <div class="header_login">
-                    欢迎<a href="javascript:;" class="header_user">176*****3...</a>
+                    欢迎
+                    <!-- <a href="javascript:;" class="header_user">176*****3...</a> -->
+                    <a href="javascript:;" class="login">登录/注册</a>
+                    <span class="username_show"></span>
                     <a href="javascript:;" class="signOut">[退出]</a>
                 </div>
             </div>
@@ -35,8 +38,8 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="ulbox">
+                <!-- <tr>
                     <td class="td1">
                         <a href="javascript:;" class="check_box"></a>
                     </td>
@@ -147,7 +150,7 @@
                         <span class="del_box"></span>
                         <a href="javascript:;" >移动心愿单</a>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="cart-tip">
@@ -165,7 +168,7 @@
             
             <div class="right">
                 商品总价（不含运费和优惠扣减）
-                <strong>￥63.50</strong>
+                <strong class="allPrice">￥0.00</strong>
                 <a href="javascript:;" class="buy_btn">去结算</a>
             </div>
         </div>
@@ -264,7 +267,176 @@
 
 
     
-    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>  
-    <script src="js/cart.js"></script>
+    <script src="js/jquery-1.8.3.js"></script>  
+    <script src="js/cookieUtil.js"></script>  
+    <script src="js/cart.js?a=1"></script>
+
+
+<script type="text/javascript">
+    var username = getCookie("username");
+    if(username!=""){
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"getShoppingCart.php",
+                data:{"vipName":username},
+                success:function (data) {
+                    showgoodscart(data);
+                    //价钱计算函数
+                    function Calculate(){
+                        var s=0;
+                        
+                        $('.sprice').each(function(k,v){
+                            if(!$('.check_box').eq(k).hasClass('active')){
+                                var everyPrice = $('.sprice').eq(k).text().substring(1)*$('.goodsNum').eq(k).html();
+                                $('.everyPrice').eq(k).html('￥'+everyPrice);
+                                s=s+everyPrice;
+                            }
+                        });
+                        $('.allPrice').html("￥"+s);
+                    }
+                    Calculate();
+                    //单选
+                    $('.check_box').bind('click',function(){
+                        $(this).toggleClass('active');
+                        if($('.check_box').hasClass('active')){
+                            $('.checkedAll').addClass('active'); 
+                        }else{
+                            $('.checkedAll').removeClass('active'); 
+                        }
+                        Calculate();
+                    })
+                    //全选
+                    $('.checkedAll').bind('click',function(){
+                        $(this).toggleClass('active');
+                        if($('.checkedAll').hasClass('active')){
+                            $('tbody .check_box').addClass('active');
+                        }else{
+                            $('tbody .check_box').removeClass('active'); 
+                        }
+                        Calculate();
+                    })
+
+                    //商品数量加
+                    $('.plus_btn').click(function(){
+                        var curNum = $(this).siblings('span').html();
+                        curNum++;
+                        $(this).siblings('span').html(curNum);
+                        var goodsId=$(this).parent().parent().siblings('.td3').children('h4').attr('goodsId');
+                        Calculate();
+                        $(function () {
+                            $.ajax({
+                                type:"get",
+                                url:"updateGoodsCount.php",
+                                data:{"vipName":username,"goodsId":goodsId,"goodsCount":curNum},
+                                success:function (data) {
+                                    if(data===1){
+                                        alert('修改成功');
+                                    }
+                                    if(data===0){
+                                        alert('修改失败');
+                                    }
+                                },
+                                dataType:"json"
+                            });
+                        });
+
+                    })
+                    //商品数量减
+                    $('.reduce_btn').click(function(){
+                        var curNum = $(this).siblings('span').html();
+                        if(curNum>1){
+                            curNum--;
+                            $(this).siblings('span').html(curNum);
+                        }
+                        var goodsId=$(this).parent().parent().siblings('.td3').children('h4').attr('goodsId');
+                        Calculate();
+                        $(function () {
+                            $.ajax({
+                                type:"get",
+                                url:"updateGoodsCount.php",
+                                data:{"vipName":username,"goodsId":goodsId,"goodsCount":curNum},
+                                success:function (data) {
+                                    if(data===1){
+                                        alert('修改成功');
+                                    }
+                                    if(data===0){
+                                        alert('修改失败');
+                                    }
+                                },
+                                dataType:"json"
+                            });
+                        });
+                    })
+
+                    
+                    //删除商品
+                    $('.del_box').click(function(){
+                        $(this).parent().parent().remove();  //删除页面的商品
+                        Calculate();
+                        var goodsId=$(this).parent().siblings('.td3').children('h4').attr('goodsId');
+                        $(function () {
+                            $.ajax({
+                                type:"get",
+                                url:"deleteGoods.php",
+                                data:{"vipName":username,"goodsId":goodsId},
+                                success:function (data) {
+                                    if(data===1){
+                                        alert('删除成功');
+                                    }
+                                    if(data===0){
+                                        alert('删除失败');
+                                    }
+                                },
+                                dataType:"json"
+                            });
+                        });
+                    })
+
+
+                },
+                dataType:"json"
+            });
+        });
+    }else{
+        alert("亲，请先在首页登录!");
+    }
+    
+    function showgoodscart(datas) {
+        let $ulbox = $("#ulbox");
+        for(let i=0;i<datas.length;i++){
+            let str = `<tr>
+                    <td class="td1">
+                        <a href="javascript:;" class="check_box"></a>
+                    </td>
+                    <td class="td2">
+                        <a href="javascript:;"><img src="${datas[i].goodsImg}" alt=""></a>
+                    </td>
+                    <td class="td3">
+                        <h4 goodsId="${datas[i].goodsId}">${datas[i].goodsName}</h4>
+                    </td>
+                    <td class="td4">
+                        <span class="sprice">¥ ${datas[i].goodsPrice}</span>
+                    </td>
+                    <td class="td5">
+                        <div class="num_box">
+                            <span class="goodsNum">${datas[i].goodsCount}</span>
+                            <a href="javascript:;" class="plus_btn"><i></i></a>
+                            <a href="javascript:;" class="reduce_btn"><i></i></a>
+                        </div>
+                    </td>
+                    <td class="td6">
+                        <span class="everyPrice">￥9.90</span>
+                    </td>
+                    <td class="td7">
+                        <span class="del_box"></span>
+                        <a href="javascript:;">移动心愿单</a>
+                    </td>
+                </tr>`;
+            $ulbox.append(str);
+        }
+    }
+</script> 
+
 </body>
 </html>

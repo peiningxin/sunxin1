@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     <title>春播-详情页</title>
     <link rel="stylesheet" href="css/detail.css">
 </head>
@@ -12,7 +16,7 @@
     <div class="header">
         <div class="header_top">
             <div class="header_inner">
-                <a href="javascript:;" class="logo"></a>
+                <a href="index.html" class="logo"></a>
                 <div class="city">
                     <div class="city_name">杭州</div>
                     <div class="city_switch">切换城市</div>
@@ -22,9 +26,10 @@
                     <input type="submit" class="sub">  
                 </div>
                 <div class="header_top_r">
-                    <a href="javascript:;" class="shoppingCart">我的购物车</a>
+                    <a href="cart.html" class="shoppingCart">我的购物车</a>
                     <div class="header_message">
                         <a href="javascript:;" class="login">登录/注册</a>
+                        <span class="username_show"></span>
                         <span class="shu">|</span>
                         <div class="mychunbo_box">
                             <a href="javascript:;" class="mychunbo">我的春播 </a>
@@ -37,6 +42,7 @@
                                 <li><a href="javascript:;">我的春播券</a></li>
                                 <li><a href="javascript:;">我的积分</a></li>
                                 <li><a href="javascript:;">兑换专区</a></li>
+                                <li><a  class="signOut" href="javascript:;">退出</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1269,8 +1275,8 @@
                     </div>
                 </div>
                 <div class="right">
-                    <ul>
-                        <li class="food_message">
+                    <ul id="ulbox">
+                        <!-- <li class="food_message">
                             <h3>佳沛新西兰巨无霸金奇异果8个</h3>
                             <p class="name">阳光般的金黄色的果肉</p>
                             <div class="size">
@@ -1278,27 +1284,25 @@
                                 <div class="menu">6个</div>
                                 <div class="menu">8个 新西兰金国巨无霸</div>
                             </div>
-
                         </li>
                         <li class="food_price">￥88.00</li>
                         <li class="food_num">
                             <div class="btn_box">
                                 <div class="btn_left reduce btn"></div>
                                 <span>1</span>
-                                <div class="btn_right plus btn"></div>                                
                             </div>
                         </li>
                         <li class="food_sendAdd">
                             <span>配送至</span>
                             <div class="add_select">浙江宁波市海曙区</div>
-                        </li>
+                        </li> -->
                     </ul>
                     <a href="javascript:;" class="add_shop">加到购物车</a>
                     <a href="javascript:;" class="add_fav">添加到心愿单</a>
                     <p class="share">分享到：
-                        <a href="javascript:;"><img src="imgages/qqkongjian.jpg" alt=""></a>
+                        <!-- <a href="javascript:;"><img src="imgages/qqkongjian.jpg" alt=""></a>
                         <a href="javascript:;"><img src="imgages/weibo.jpg" alt=""></a>
-                        <a href="javascript:;"><img src="imgages/weixin.jpg" alt=""></a>
+                        <a href="javascript:;"><img src="imgages/weixin.jpg" alt=""></a> -->
                     </p>
                 </div>
             </div>
@@ -1558,9 +1562,96 @@
         </div>
     </div>
 
+    <script src="js/jquery-1.8.3.js"></script>  
+    <script src="js/cookieUtil.js"></script>  
+    <script src="js/detail.js?b=1"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"getGoodsInfo.php",
+                data:{"goodsId":getCookie('goodsId')},
+                success:function (data) {
+                    showgoodsInfo(data);
+                    // console.log(data);
+                    $('.food_message .menu').bind('click',function(){
+                        $(this).addClass('active').siblings().removeClass('active');
+                    })
+                    
+                    //数量加减
+                    $('.reduce').bind('click',function(){
+                        var number = $(this).next().html();
+                        if(number>1){
+                            number--;
+                            $(this).next().html(number);
+                        }
+                    })
+                    $('.plus').bind('click',function(){
+                        var number = $(this).prev().html();
+                        number++;
+                        $(this).prev().html(number);
+                    })
+                    //发送ajax把商品添加到购物车
+                    $('.add_shop').click(function(){
+                    var username = getCookie("username");
+                    if(username!=""){
+                        var goodsId=$(this).siblings().find('h3').attr('goodsId');
+                        var goodsCount = $('.goodsCounts').html();
+                        $(function () {
+                            $.ajax({
+                                type:"get",
+                                url:"addShoppingCart.php",
+                                data:{"vipName":username,"goodsId":goodsId,"goodsCount":goodsCount},
+                                success:function (data) {
+                                    if(data===1){
+                                        alert('添加成功');
+                                    }
+                                    if(data===0){
+                                        alert('添加失败');
+                                    }
+                                },
+                                dataType:"json"
+                            });
+                        });
+                    }else{
+                        alert("亲，请先在首页登录!");
+                    }
+                })
 
+                },
+                dataType:"json"
+            });
+        });
     
-    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>  
-    <script src="js/detail.js"></script>
+        function showgoodsInfo(datas) {
+            let $ulbox = $("#ulbox");
+            var str="<li class='food_message'><h3 goodsId='"+datas.goodsId+"'>"         +datas.goodsName+"</h3><p class='name'>"+datas.goodsDesc+"</p><div class='size'><div class='menu active'>8个</div><div class='menu'>6个</div><div class='menu'>8个 新西兰金国巨无霸</div></div></li>"+
+                    "<li class='food_price'>￥"+datas.goodsPrice+"</li>"+
+                    "<li class='food_num'><div class='btn_box'><div class='btn_left reduce btn'></div><span class='goodsCounts'>1</span><div class='btn_right plus btn'></div></div></li>"+
+                    "<li class='food_sendAdd'><span>配送至</span><div class='add_select'>浙江宁波市海曙区</div></li>"
+            $ulbox.append(str);
+        }
+
+        function getCookie(cookieName){
+            //alert(document.cookie);
+            var cookieStr = unescape(document.cookie);
+            
+            //var cookieStr = document.cookie;
+            //1、分割成数组
+            var arr = cookieStr.split("; ");
+            
+            //2、遍历数组查找
+            var value="";
+            for(var i in arr){
+                if(arr[i].indexOf(cookieName+"=")==0){
+                    value=arr[i].substring((cookieName+"=").length);
+                    break;
+                }
+            }
+            
+            return value;
+        }
+    </script> 
+
 </body>
 </html>

@@ -175,6 +175,10 @@ body{
                         color:$green;
                         float: left;
                     }
+                    .username_show{
+                        float:left;
+                        color:$green;
+                    }
                     .shu{
                         color: #ccc;
                         padding: 0 5px;
@@ -457,9 +461,13 @@ body{
                     width:588px;
                     height:470px;
                     overflow: hidden;
+                    position: relative;
                     img{
                         width:588px;
                         height:470px;
+                        position: absolute;
+                        left:0;
+                        top:0;
                     }
                 }
                 .small_box_list{
@@ -508,12 +516,13 @@ body{
                         }
                         .size{
                             .menu{
-                                padding:0 17px;
+                                padding:0 10px;
                                 line-height: 30px;
                                 height:30px;
                                 border:1px solid $borderColor;
                                 cursor: pointer;
                                 display: inline-block;
+                                margin:0 3px;
                             }
                             .active{
                                 color:$green;

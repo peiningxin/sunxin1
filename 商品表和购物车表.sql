@@ -32,6 +32,7 @@ create table shoppingCart(
 select * from shoppingCart 
 
 select * from goodsInfo
+select * from vip
 
 
 --删

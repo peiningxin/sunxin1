@@ -25,7 +25,16 @@
     if($rows==0){
         echo "Username or password error";
     }else{
-        echo "<script type='text/javascript'>location.href='index.html';</script>";
-        // echo "Congratulations ".$username.", landing success , get into : <a href='index.html'>index page</a>";
+        echo "<script type='text/javascript'>
+                function saveCookie(cookieName,cookieValue,cookieDates){
+                    var d = new Date();
+                    var t = d.getDate()+cookieDates;
+                    d.setDate(t);
+                    document.cookie=cookieName+'='+escape(cookieValue)+';expires='+d.toGMTString();
+                }
+                saveCookie('username',".$username.",7);
+                console.log(document.cookie);
+                location.href='index.html';
+            </script>";
     }
 ?>

@@ -61,11 +61,15 @@ body{
                 height:45px;
                 line-height: 45px;
                 color:#999;
-                .header_login{
+                .login{
+                    color:#333;
+                }
+                .username_show{
                     color:#999;
                 }
                 .signOut{
                     color:#999;
+                    display: none;
                 }
             }
         }

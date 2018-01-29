@@ -199,6 +199,10 @@ body {
   color: #22bc69;
   float: left;
 }
+.header .header_top .header_inner .header_top_r .header_message .username_show {
+  float: left;
+  color: #22bc69;
+}
 .header .header_top .header_inner .header_top_r .header_message .shu {
   color: #ccc;
   padding: 0 5px;
@@ -445,10 +449,14 @@ body {
   width: 588px;
   height: 470px;
   overflow: hidden;
+  position: relative;
 }
 .section .food_show .food_show_inner .left .big_box img {
   width: 588px;
   height: 470px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .section .food_show .food_show_inner .left .small_box_list {
   float: right;
@@ -492,12 +500,13 @@ body {
   color: #22bc69;
 }
 .section .food_show .food_show_inner .right ul .food_message .size .menu {
-  padding: 0 17px;
+  padding: 0 10px;
   line-height: 30px;
   height: 30px;
   border: 1px solid #ededed;
   cursor: pointer;
   display: inline-block;
+  margin: 0 3px;
 }
 .section .food_show .food_show_inner .right ul .food_message .size .active {
   color: #22bc69;

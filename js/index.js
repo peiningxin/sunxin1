@@ -1,3 +1,45 @@
+//用cookie查询有没账号登录
+function saveCookie(cookieName,cookieValue,cookieDates){
+	var d = new Date();
+	var t = d.getDate()+cookieDates;
+	d.setDate(t);
+	document.cookie=cookieName+"="+escape(cookieValue)+";expires="+d.toGMTString();
+}
+function getCookie(cookieName){
+	var cookieStr = unescape(document.cookie);
+	//1、分割成数组
+	var arr = cookieStr.split("; ");
+	
+	//2、遍历数组查找
+	var value="";
+	for(var i in arr){
+		if(arr[i].indexOf(cookieName+"=")==0){
+			value=arr[i].substring((cookieName+"=").length);
+			break;
+		}
+	}
+	return value;
+}
+
+var username = getCookie("username");
+if(username!=""){
+    $('.login').hide();
+    $('.signOut').show();
+    $('.username_show').show().html(username);
+}else{
+    $('.login').show();
+    $('.username_show').hide();
+    $('.signOut').hide();
+}
+$('.signOut').click(function(){
+    saveCookie("username","",-1);  //删除cookie
+    $('.login').show();
+    $('.username_show').hide();
+    $('.signOut').hide();
+})
+
+
+
 //轮播图
 var numCarousel = 0;
 var carouselTime = null;

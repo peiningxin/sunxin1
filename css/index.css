@@ -194,6 +194,10 @@ body {
   color: #22bc69;
   float: left;
 }
+.header .header_top .header_inner .header_top_r .header_message .username_show {
+  float: left;
+  color: #22bc69;
+}
 .header .header_top .header_inner .header_top_r .header_message .shu {
   color: #ccc;
   padding: 0 5px;
@@ -227,6 +231,9 @@ body {
 }
 .header .header_top .header_inner .header_top_r .header_message .mychunbo_box .mychunbo_list li:hover {
   background-color: #f7f7f7;
+}
+.header .header_top .header_inner .header_top_r .header_message .mychunbo_box .mychunbo_list .signOut {
+  display: none;
 }
 .header .header_nav {
   border-bottom: 1px solid #ededed;

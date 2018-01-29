@@ -194,6 +194,10 @@ body {
   color: #22bc69;
   float: left;
 }
+.header .header_top .header_inner .header_top_r .header_message .username_show {
+  float: left;
+  color: #22bc69;
+}
 .header .header_top .header_inner .header_top_r .header_message .shu {
   color: #ccc;
   padding: 0 5px;

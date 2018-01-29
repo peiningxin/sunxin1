@@ -12,7 +12,7 @@
     <div class="header">
         <div class="header_top">
             <div class="header_inner">
-                <a href="javascript:;" class="logo"></a>
+                <a href="index.html" class="logo"></a>
                 <div class="city">
                     <div class="city_name">杭州</div>
                     <div class="city_switch">切换城市</div>
@@ -22,9 +22,10 @@
                     <input type="submit" class="sub">  
                 </div>
                 <div class="header_top_r">
-                    <a href="javascript:;" class="shoppingCart">我的购物车</a>
+                    <a href="cart.html" class="shoppingCart">我的购物车</a>
                     <div class="header_message">
                         <a href="javascript:;" class="login">登录/注册</a>
+                        <span class="username_show"></span>
                         <span class="shu">|</span>
                         <div class="mychunbo_box">
                             <a href="javascript:;" class="mychunbo">我的春播 </a>
@@ -37,6 +38,7 @@
                                 <li><a href="javascript:;">我的春播券</a></li>
                                 <li><a href="javascript:;">我的积分</a></li>
                                 <li><a href="javascript:;">兑换专区</a></li>
+                                <li><a  class="signOut" href="javascript:;">退出</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1423,9 +1425,9 @@
 
 
     
-<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script> 
-
-<script src="js/list.js"></script>
+<script src="js/jquery-1.8.3.js"></script>  
+<script src="js/cookieUtil.js"></script>  
+<script src="js/list.js?p=1"></script>
 
 <script type="text/javascript">
     $(function () {
@@ -1434,24 +1436,58 @@
             url:"getGoodsList.php",
             success:function (data) {
                 showgoodsList(data);
+
+                $('.food_name').click(function(){
+                    var cookieValue=$(this).attr('goodsId');
+                    saveCookie('goodsId',cookieValue,7);
+                });
+                
+                $('.add_shop').click(function(){
+                    var goodsId=$(this).siblings('.food_name').attr('goodsId');
+                    var username = getCookie("username");
+                    if(username!=""){
+                        $(function () {
+                            $.ajax({
+                                type:"get",
+                                url:"addShoppingCart.php",
+                                data:{"vipName":username,"goodsId":goodsId,"goodsCount":1},
+                                success:function (data) {
+                                    // console.log(data);
+                                    if(data===1){
+                                        alert('添加成功');
+                                    }
+                                    if(data===0){
+                                        alert('添加失败');
+                                    }
+                                },
+                                dataType:"json"
+                            });
+                        });
+                    }else{
+                        alert("亲，请先在首页登录!");
+                    }
+
+                })
+
             },
             dataType:"json"
         });
     });
 
+    function saveCookie(cookieName,cookieValue,cookieDates){
+        var d = new Date();
+        var t = d.getDate()+cookieDates;
+        d.setDate(t);
+        document.cookie=cookieName+"="+escape(cookieValue)+";expires="+d.toGMTString();
+    }
+
     function showgoodsList(datas) {
         let $ulbox = $("#ulbox");
         for(let i=0;i<datas.length;i++){
-            //1、创建li
-            // let str="<li><p>商品编号："+datas[i].goodsId+"</p>" +
-            //     "<p>商品名称："+datas[i].goodsName+"</p>" +
-            //     "<p>商品价格："+datas[i].goodsPrice+"</p>" +
-            //     "<p>商品图片：<img style='width:100px' src='"+datas[i].goodsImg+"'/></p></li>";
-
             let str="<div class='menu'>"+
                         "<a href='javascript:;' class='food_pic'><img src='"+datas[i].goodsImg+"'></a>"+
                         "<p class='food_msg'>"+datas[i].goodsDesc+"</p>"+
-                        "<a href='javascript:;' class='food_name'>"+datas[i].goodsName+"</a>"+
+                        "<a href='detail.html' class='food_name' goodsId='"+datas[i].goodsId+"'>"+datas[i].goodsName+"</a>"+
                         "<strong class='food_price'>￥"+datas[i].goodsPrice+"</strong>"+
                         "<b class='food_num'>"+datas[i].goodsCount+"</b>"+
                         "<div class='fav'><i></i><span>添加到心愿单</span></div>"+

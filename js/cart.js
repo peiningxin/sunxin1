@@ -1,37 +1,21 @@
-//单选
-$('.check_box').bind('click',function(){
-    $(this).toggleClass('active');
-    if($('.check_box').hasClass('active')){
-        $('.checkedAll').addClass('active'); 
-    }else{
-        $('.checkedAll').removeClass('active'); 
-    }
-})
-//单选
-$('.checkedAll').bind('click',function(){
-    $(this).toggleClass('active');
-    if($('.checkedAll').hasClass('active')){
-        $('tbody .check_box').addClass('active');
-    }else{
-        $('tbody .check_box').removeClass('active'); 
-    }
-})
-
-//商品数量加减
-$('.plus_btn').click(function(){
-    var curNum = $(this).siblings('span').html();
-    curNum++;
-    $(this).siblings('span').html(curNum);
+//用cookie查询有没账号登录
+var username = getCookie("username");
+if(username!=""){
+    $('.login').hide();
+    $('.signOut').show();
+    $('.username_show').show().html(username);
+}else{
+    $('.login').show();
+    $('.username_show').hide();
+    $('.signOut').hide();
+}
+$('.signOut').click(function(){
+    saveCookie("username","",-1);  //删除cookie
+    $('.login').show();
+    $('.username_show').hide();
+    $('.signOut').hide();
 })
 
-$('.reduce_btn').click(function(){
-    var curNum = $(this).siblings('span').html();
-    if(curNum>1){
-        curNum--;
-        $(this).siblings('span').html(curNum);
-    }
-})
-
-$('.del_box').click(function(){
-    $(this).parent().parent().hide();
-})
+$('.login').click(function(){
+    alert('亲，请在首页登录！');
+});
